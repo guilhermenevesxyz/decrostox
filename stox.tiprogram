@@ -1,0 +1,24 @@
+Define stox()=
+Prgm
+  Local market,wallet,asset
+  market:=350000
+  wallet:=15000
+  asset:=0
+  Lbl gl
+    Disp "Market: ",market
+    Disp "Wallet: ",wallet
+    Disp "Asset: ",asset
+    Request "Enter stake.",stake
+    wallet:=wallet-stake
+    market:=market-stake
+    asset:=asset+stake
+    Local chg,chgm,chga
+    chg:=randInt(-5,5)
+    chgm:=(chg×market)/100.
+    chga:=(chg×asset)/100.
+    market:=market+chgm
+    asset:=asset+chga
+    Request "Continue?",c
+    If c≠0
+    Goto gl
+EndPrgm
